@@ -1,0 +1,13 @@
+<div class="pagination">
+  <button class="btn-pagination btn-prev" (click)="goToPreviousPage()" [disabled]="currentPage === 1">Anterior</button>
+
+  <ol>
+    <li *ngFor="let page of pageNumbers"
+        [class.active]="page === currentPage"
+        (click)="onPageChanged(page)">
+      {{ page }}
+    </li>
+  </ol>
+
+  <button class="btn-pagination btn-next" (click)="goToNextPage()" [disabled]="currentPage === totalPages">Próximo</button>
+</div>

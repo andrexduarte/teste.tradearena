@@ -1,0 +1,33 @@
+<div class="container-grid">
+  <section class="user-info">
+    <img [src]="assetsService.getImagePath('User.png')" class="avatar" alt="João Ninguém" />
+    <div>
+      <h3 class="user-info-title">
+        Deposite ou solicite o seu resgate
+      </h3>
+      <p>
+        <small>Os resgates demoram até 48h úteis para serem aprovados.</small>
+        Membro desde 2022
+      </p>
+    </div>
+  </section>
+
+  <section *ngFor="let balance of balances" class="box">
+    <img [src]="assetsService.getImagePath(balance.icon)" class="ico" [alt]="balance.alt" />
+    <h3>
+      {{ balance.title }}
+    </h3>
+    
+    <p class="balance">
+      <span class="symbol">
+        {{ balance.symbol }}
+      </span>
+      <strong class="value" [ngClass]="{'money': balance.symbol === 'R$', 'coin': balance.symbol === 'T$'}">
+        {{ balance.value }}
+      </strong>
+      <span class="currency">
+        {{ balance.currency }}
+      </span>
+    </p>
+  </section>
+</div>

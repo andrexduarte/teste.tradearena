@@ -1,0 +1,52 @@
+@use '../../../assets/styles/variables' as *;
+@use '../../../assets/styles/mixins' as *;
+
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  justify-content: center;
+  
+  ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 35px;
+
+    li {
+      cursor: pointer;
+      padding: 5px;
+      transition: .2s all ease;
+      border-bottom: 1px solid transparent;
+
+      &.active,
+      &:hover {
+        color: var(--orange);
+        border-color: var(--orange);
+      }
+    }
+  }
+
+  .btn-pagination {
+    background: url(#{$imagePath}BtnPrev.png) no-repeat;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 31px;
+    height: 31px;
+    @include hide-text;
+
+    &.btn-next {
+      transform: rotate(180deg);
+    }
+  }
+
+  button:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+  }
+
+}

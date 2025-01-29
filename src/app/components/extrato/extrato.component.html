@@ -1,0 +1,57 @@
+<section class="extrato">
+  <h3 class="extrato-title">Extrato</h3>
+
+  <ul class="list-select">
+    <li>
+      <select class="textfield" name="" id="">
+        <option value="">Selecione pelo tipo</option>
+      </select>
+    </li>
+    <li>
+      <mat-form-field appearance="outline">
+        <mat-date-range-input [formGroup]="dateRangeForm" [rangePicker]="picker">
+          <input matStartDate formControlName="start" placeholder="Data inicial" [max]="maxDate">
+          <input matEndDate formControlName="end" placeholder="Data final" [max]="maxDate">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      
+    </li>
+  </ul>
+
+  <section>
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Data da transação</th>
+            <th>Valor</th>
+            <th>Saldo</th>
+            <th>Informação adicional</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let item of dadosFiltrados">
+            <td>{{ item.data | date:'dd/MM/yyyy, HH:mm' }}</td>
+            <td [ngClass]="{ 'positivo': item.valor.startsWith('+'), 'negativo': item.valor.startsWith('-') }">
+              {{ item.valor }}
+            </td>
+            <td>{{ item.saldo }}</td>
+            <td>{{ item.informacao }}</td>
+            <td>{{ item.tipo }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <app-pagination 
+      [currentPage]="currentPage" 
+      [totalPages]="totalPages" 
+      (pageChanged)="onPageChanged($event)">
+    </app-pagination>
+    
+  </section>
+</section>

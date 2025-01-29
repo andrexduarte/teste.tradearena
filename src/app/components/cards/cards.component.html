@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-header-title">
+      {{ title }}
+    </h3>
+  </div>
+
+  <div class="card-body">
+    <form>
+      <div *ngFor="let field of formFields" class="form-group">
+
+        <label *ngIf="field.label" [for]="field.id">
+          {{ field.label }}
+        </label>
+
+        <ng-container [ngSwitch]="field.type">
+          <input
+            *ngSwitchCase="'text'"
+            class="textfield"
+            [type]="field.type"
+            [id]="field.id"
+            [name]="field.name"
+          />
+
+          <select class="textfield" *ngSwitchCase="'select'" [id]="field.id" [name]="field.name">
+            <option *ngFor="let option of field.options" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </ng-container>
+
+      </div>
+      <button class="primary-button" *ngFor="let button of buttons" [type]="button.type">
+        {{ button.label }}
+      </button>
+    </form>
+
+    <div class="box-qrcode" *ngIf="imagePath">
+      <figure class="box-qrcode-figure">
+        <img [src]="imagePath" alt="QR Code" />
+      </figure>
+      <button class="primary-button" type="button">Copiar código</button>
+    </div>
+  </div>
+  
+  <div class="card-footer">
+    <small class="note">
+      {{ note }}
+    </small>
+  </div>
+</div>

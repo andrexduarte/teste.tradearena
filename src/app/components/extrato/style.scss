@@ -1,0 +1,131 @@
+@use '../../../assets/styles/mixins' as *;
+
+.extrato {
+  margin-bottom: 55px;
+
+  &-title {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+}
+
+.textfield {
+  background-color: var(--dark);
+  cursor: pointer;
+  padding: 15px 20px;
+  border: 1px solid #8d8d8d;
+  border-radius: 5px;
+  color: #7e7e7e;
+  //max-width: 295px;
+  width: 100%;
+
+  option {
+    background-color: var(--dark);
+    color: #7e7e7e;
+    padding: 15px 20px;
+  }
+}
+
+.list-select {
+  margin: 0 0 58px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 35px;
+
+  @include breakpoint(xs) {
+    flex-wrap: wrap;
+  }
+
+  li {
+    max-width: 295px;
+    width: 100%;
+
+    @include breakpoint(xs) {
+      max-width: 100%;
+    }
+  }
+}
+
+.table-container {
+  overflow: auto;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 55px;
+  border-radius: 20px;
+}
+
+.table {
+  background-color: #1c1d1e;
+  border-radius: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  padding-bottom: 15px;
+
+  tr {
+    border-top: 1px solid #292a2f;
+
+    &:first-child {
+      border-top: 0 none;
+    }
+
+    &:last-child {
+
+      td {
+        padding-bottom: 60px;
+
+      }
+    }
+  }
+
+  th {
+    text-align: left;
+    padding: 55px 60px 15px;
+    font-size: 18px;
+    color: #8d8d8d;
+    font-weight: 400;
+  }
+
+  td {
+    padding: 30px 60px;
+    font-size: 16px;
+    color: #FFF;
+  }
+
+  .positivo {
+    color: #6add46;
+  }
+  
+  .negativo {
+    color: #eb3223;
+  }
+}
+
+.mat-datepicker-toggle {
+  color: #8d8d8d;
+}
+
+// Style Datepicker
+::ng-deep {
+  .mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {
+    padding: 0;
+  }
+
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+
+  .mat-mdc-form-field-flex {
+    flex-direction: row-reverse;
+  }
+
+  .mat-date-range-input-inner,
+  .mat-date-range-input-separator {
+    color: #7e7e7e !important;
+  }
+  .mdc-text-field--outlined .mdc-notched-outline {
+    border: 1px solid #8d8d8d;
+    border-radius: 5px;
+    color: #7e7e7e;
+  }
+}
