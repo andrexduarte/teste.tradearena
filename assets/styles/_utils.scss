@@ -1,0 +1,13 @@
+@use 'mixins' as *;
+
+.primary-button {
+  font-size: 14px;
+  border: 0 none;
+  border-radius: 5px;
+  color: #9f9f9f;
+  cursor: pointer;
+  background-color: #080808;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+}

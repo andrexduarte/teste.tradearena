@@ -1,0 +1,24 @@
+@forward 'variables-config';
+@forward 'reset';
+@forward 'baseline';
+@forward 'layout';
+@forward 'utils';
+
+@use '@angular/material' as mat;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@include mat.core();
+
+$tradearena-primary: mat.define-palette(mat.$indigo-palette);
+$tradearena-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$tradearena-warn: mat.define-palette(mat.$red-palette);
+
+$tradearena-theme: mat.define-light-theme((
+  color: (
+    primary: $tradearena-primary,
+    accent: $tradearena-accent,
+    warn: $tradearena-warn,
+  )
+));
+
+@include mat.all-component-themes($tradearena-theme);
